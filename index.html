@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src=""></script>
+</head>
+<body>
+    <header>
+        <div class="cabecero">
+            <div class="presupuesto">
+                <div class="presupuesto_titulo">
+                    <h3>Presupuesto disponible</h3>
+                </div>
+                <div class="presupuesto_valor">
+                    <h4>+2,000.00. MXN</h4>
+                </div>
+                <div class="presupuesto_ingreso limpiarEstilos">
+                    <div class="presupuesto_ingreso--texto">
+                        Ingresos
+                    </div>
+                    <div class="derecha">
+                        <div class="presupuesto_ingreso--valor">
+                            +4,000.00.
+                        </div>
+                        <div class="presupuesto_ingreso--porcentaje">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="presupuesto_egreso limpiarEstilos">
+                    <div class="presupuesto_egreso--texto">
+                        Egresos
+                    </div>
+                    <div class="derecha limpiarEstilos">
+                        <div class="presupuesto_egreso--valor">
+                            -1,900.00.
+                        </div>
+                        <div class="presupuesto_egreso--porcentaje">
+                            45%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <form id="forma">
+        <div class="agregar">
+            <div class="agregar_contenedor">
+                <select class="agregar_tipo" name="" id="tipo">
+                    <option value="ingreso">+</option>
+                    <option value="egreso">-</option>
+                </select>
+                <input class="agregar_descripcion" type="text" placeholder="Agregar Descripción" id="descripcion">
+                <input class="agregar_valor" type="number" placeholder="Valor" step="any">
+                <button class="agregar_btn"></button>
+            </div>
+        </div>
+    </form>
+<script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js."></script>
+</body>
+</html>
