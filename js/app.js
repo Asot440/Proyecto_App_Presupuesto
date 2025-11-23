@@ -1,18 +1,20 @@
-const ingresos={
+let ingresos=[{
     Quincena: 9000,
     Venta: 400
-}
+}];
 
-const egresos={
+let egresos=[{
     Renta: 900,
     Ropa:400
-}
+}];
 
 //Funcion total ingresos
 const totalIngresos = () => {
     let totalIngreso = 0;
-    for (const ingreso of ingresos){
-        totalIngreso =+ ingreso
+    for (let ingreso of ingresos){
+        for(let elemento in ingreso){
+            totalIngreso += ingreso[elemento];
+        }
     }
     return totalIngreso
 }
@@ -20,8 +22,10 @@ const totalIngresos = () => {
 //Funcion total egresos
 const totalEgresos = () => {
     let totalEgreso = 0;
-    for(const egreso of egresos){
-        totalEgreso =+ egreso;
+    for (let egreso of egresos){
+        for(let elemento in egreso){
+            totalEgreso += egreso[elemento]
+        }
     }
     return totalEgreso
 }
@@ -35,4 +39,4 @@ const cargarCabecero = () => {
     console.log(totalEgresos());
 }
 
-cargarCabecero()
+cargarCabecero();
