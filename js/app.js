@@ -1,4 +1,4 @@
-//---------Duda--------------
+//-------Definicion de las clases Dato, Ingreso y Egreso---------
 class Dato{
     constructor(descripcion, valor){
         this._descripcion=descripcion;
@@ -40,6 +40,7 @@ class Egreso extends Dato{
     }
 }
 
+//-------Arreglos de ingresos y egresos---------
 const ingresos= [new Ingreso("Salario", 25000), new Ingreso("Venta auto", 150000)];
 
 const egresos=[new Egreso("Renta", 2000), new Egreso("Ropa", 500), new Egreso("Comida para Gatos", 500) ];
@@ -71,6 +72,8 @@ const cargarCabecero = () => {
     document.getElementById("porcentaje").innerHTML=formatoPorcentaje(porcentajeEgreso);
     document.getElementById("ingresos").innerHTML=formatoMoneda(totalIngresos())+" MXN";
     document.getElementById("egresos").innerHTML=formatoMoneda(totalEgresos())+" MXN";
+    descripcion.value=""; //Limpia los campos despues de agregar un dato
+    valor.value=""; //Limpia los campos despues de agregar un dato
 }
 
 //-------------Formatos moneda y porcentaje-------------
@@ -81,12 +84,14 @@ const formatoPorcentaje = (valor) => {
     return valor.toLocaleString("es-MX", {style: "percent", minimumFractionDigits: 2});
 }
 
+//-------------Carga de la aplicacion-------------
 const cargarApp =() => {
     cargarCabecero();
     cargarIngresos();
     cargarEgresos();
 }
 
+//-------------Funciones para cargar ingresos-------------
 const cargarIngresos = () => {
     let ingresosHTML= "";
     for(let ingreso of ingresos){
@@ -113,6 +118,15 @@ const crearIngresoHTML = (ingreso) => {
     return ingresoHTML;
 }
 
+//-------------Funcion para eliminar ingresos-------------
+const eliminarIngreso = (id) => {
+    let indiceEliminar=ingresos.findIndex(ingreso => ingreso.id===id);
+    ingresos.splice(indiceEliminar, 1);
+    cargarCabecero();
+    cargarIngresos();
+}
+
+//-------------Funciones para cargar egresos-------------
 const cargarEgresos = () =>{
     let egresosHTML="";
     for(let egreso of egresos){
@@ -142,6 +156,7 @@ const crearEgresoHTML = (egreso) => {
     return egresoHTML;
 }
 
+//-------------Funcion para eliminar egresos-------------
 const eliminarEgreso = (id) => {
     let indiceEliminar=egresos.findIndex(egreso => egreso.id===id);
     egresos.splice(indiceEliminar, 1);
@@ -149,13 +164,7 @@ const eliminarEgreso = (id) => {
     cargarEgresos();
 }
 
-const eliminarIngreso = (id) => {
-    let indiceEliminar=ingresos.findIndex(ingreso => ingreso.id===id);
-    ingresos.splice(indiceEliminar, 1);
-    cargarCabecero();
-    cargarIngresos();
-}
-
+//-------------Funcion para agregar datos-------------
 const agregarDato = () => {
     let forma=document.getElementById("forma");
     let tipo=document.getElementById("tipo").value;
